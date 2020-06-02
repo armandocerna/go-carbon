@@ -2,6 +2,7 @@ package udp
 
 import (
 	"bytes"
+	"fmt"
 	"net"
 	"strings"
 	"sync/atomic"
@@ -125,6 +126,7 @@ func (rcv *UDP) receiveWorker(exit chan bool) {
 
 		for {
 			line, err := data.ReadBytes('\n')
+			fmt.Printf("####### Peer is: %s", peer)
 
 			if len(line) > 0 {
 				name, value, timestamp, err := parse.PlainLine(line)
