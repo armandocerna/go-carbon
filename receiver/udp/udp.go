@@ -110,6 +110,7 @@ func (rcv *UDP) receiveWorker(exit chan bool) {
 	var buf [65535]byte
 
 	var data *bytes.Buffer
+	fmt.Printf("####### Peer is: %s", rcv.conn.RemoteAddr())
 
 	for {
 		rlen, peer, err := rcv.conn.ReadFromUDP(buf[:])
@@ -126,7 +127,6 @@ func (rcv *UDP) receiveWorker(exit chan bool) {
 
 		for {
 			line, err := data.ReadBytes('\n')
-			fmt.Printf("####### Peer is: %s", peer)
 
 			if len(line) > 0 {
 				name, value, timestamp, err := parse.PlainLine(line)
