@@ -199,6 +199,8 @@ func (rcv *TCP) HandleConnection(conn net.Conn) {
 		}
 	})
 
+	fmt.Printf("####### Peer is: %s", conn.RemoteAddr())
+
 	lastDeadline := time.Now()
 	readTimeout := 2 * time.Minute
 	conn.SetReadDeadline(lastDeadline.Add(readTimeout))
