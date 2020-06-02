@@ -183,7 +183,7 @@ func main() {
 	if err = app.Start(); err != nil {
 		mainLogger.Fatal(err.Error())
 	} else {
-		mainLogger.Info("started")
+		mainLogger.Info("started AGAIN")
 	}
 
 	go func() {
